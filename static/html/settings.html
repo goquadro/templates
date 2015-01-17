@@ -1,0 +1,19 @@
+<md-tabs>
+  <md-tab label="Info" active="true">
+    <ul>
+      <li>You currently have filed {{me.documents.length}} <ng-pluralize count="me.documents.length" when="{'one': 'document', 'other': 'documents'}"></ng-pluralize=""></li>
+    </ul>
+  </md-tab>
+  <md-tab label="Profile">
+    <ul>
+      <li>Your name: {{me.name}}</li>
+    </ul>
+  </md-tab>
+  <md-tab label="Account">
+    <ul>
+      <li>Your username: {{me.username}}</li>
+      <li>Your email address: {{me.email}}</li>
+      <li>Cancel your account: <a href="" ng-click="cancel_account()">here</a></li>
+    </ul>
+  </md-tab> 
+</md-tabs>

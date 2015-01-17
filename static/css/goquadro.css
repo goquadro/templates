@@ -1,0 +1,33 @@
+
+.messagebox md-whiteframe {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+}
+
+#docwrapper {
+  background-color: whitesmoke;
+}
+
+.document {
+  background-color: white;
+}
+
+.docbox{
+  min-width: 250px;
+  min-height: 150px;
+}
+
+md-whiteframe {
+  background: #fff;
+  margin: 10px;
+  padding: 10px;
+}
+
+.danger {
+  background-color: #FFB2B2;
+}
+
+.success {
+  background-color: #B2FFB2;
+}

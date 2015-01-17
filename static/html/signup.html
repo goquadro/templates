@@ -1,0 +1,9 @@
+<md-content ng-controller="UserCtrl">
+	<form novalidate ng-submit="actions.signup()" id="signup-form">
+	  <md-text-float label="Username" ng-model="user.username" type="text"></md-text-float>
+	  <md-text-float label="Password" ng-model="user.password" type="password"></md-text-float>
+	  <md-text-float label="Email" ng-model="user.email" type="email"></md-text-float>
+	  <md-text-float label="Signup code" ng-model="user.signupcode" type="text"></md-text-float>
+	  <md-button type="submit" class="md-button-raised md-button-colored" aria-label="Submit">Sign up</md-button>
+	</form>
+</md-content>

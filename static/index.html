@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="goquadro">
+  <head>
+    <title>goquadro</title>
+    <meta name="description" content="qdoc document manager">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="/css/goquadro.css">
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/bower_components/hammerjs/hammer.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="/js/goquadro.js"></script>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <base href="/"></base>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-53861119-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script>
+        UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/sSSwhwi72yygKmLY6wzVA.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+        UserVoice.push(['set', {
+          accent_color: '#448dd6',
+          trigger_color: 'white',
+          trigger_background_color: 'rgba(46, 49, 51, 0.6)'
+        }]);
+        UserVoice.push(['identify', {}]);
+        UserVoice.push(['addTrigger', { mode: 'contact', trigger_position: 'bottom-right' }]);
+        UserVoice.push(['autoprompt', {}]);
+    </script>
+
+  </head>
+  <body ng-controller="GqDataCtrl as user">
+    <div layout="vertical" layout-fill>
+      <md-toolbar class="md-theme-dark">
+        <div class="md-toolbar-tools">
+          <a ui-sref="home">GoQuadro</a>
+          <span flex></span>
+          <a ng-show="me.authenticated" ui-sref="logout">Log out</a>
+          <a ng-hide="me.authenticated" ui-sref="login">Log in</a>
+          <a ng-hide="me.authenticated" ui-sref="signup">Sign up</a>
+        </div>
+      </md-toolbar>
+      <md-whiteframe ng-repeat="alert in alerts" type="{{alert.type}}" class="md-whiteframe-z2 messagebox {{alert.type}}" layout="center center">
+        <span>{{alert.msg}}</span><span><a href="" ng-click="closeAlert($index)">X</a></span>
+      </md-whiteframe>
+      <div ui-view></div>
+    </div>
+    <footer id="documents-footer">
+    </footer>
+  </body>
+</html>

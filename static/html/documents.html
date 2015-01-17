@@ -1,0 +1,30 @@
+<section flex ng-show="me.authenticated" layout="horizontal">
+  <md-content flex class="md-content-padding" id="docwrapper">
+    <div layout="vertical" layout-sm="horizontal" layout-padding>
+      <div ng-repeat="doc in (me.documents | orderBy: 'lastModified':true)" class="docbox">
+        <md-card class="document" ng-click="toggleRight(doc)">
+          <img class="md-card-image" />
+          <h2>{{doc.title}}</h2>
+        </md-card>
+      </div>
+    </div>
+  </md-content>
+  <md-sidenav class="md-sidenav-right md-whiteframe-z2" component-id="right">
+    <md-toolbar class="md-theme-light">
+      <h1 class="md-toolbar-tools">{{selected.title | limitTo: 35}}</h1>
+    </md-toolbar>
+    <div ng-show="selected">
+      <p><a ng-href="{{selected.url}}" target="_blank">{{selected.url}}</a></p>
+      <p>Last modified: {{selected.lastModified | date}}</p>
+      <p><a href="" ng-click="rmDoc(selected)">Delete</a></p>
+      <md-content ng-controller="RightCtrl" class="md-content-padding">
+        <md-button ng-click="close()" class="md-button-colored" hide-md aria-label="Close panel">
+          Close
+        </md-button>
+      </md-content>
+    </div>
+  </md-sidenav>
+</section>
+<section ng-hide="me.authenticated">
+  <p>GoQuadro is a web filesystem.</p>
+</section>
